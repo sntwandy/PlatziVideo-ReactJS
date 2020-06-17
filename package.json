@@ -1,0 +1,19 @@
+{
+  "name": "platzivideo",
+  "version": "1.0.0",
+  "description": "Platzi Video project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Platzi",
+    "Video"
+  ],
+  "author": "@sntwandy",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
