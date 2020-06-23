@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 
 // Styles
 import '../assets/styles/App.scss';
@@ -12,6 +12,16 @@ import CarouselItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
 
 const App = () => {
+    const [ videos, setVideos ] = useState([]);
+
+    useEffect( () => {
+        fetch('http://localhost:3000/initalState')
+            .then(response => response.json())
+            .then(data => setVideos(data))
+    }, []);
+
+    console.log(videos);
+
     return(
         <React.Fragment>
             <Header />
