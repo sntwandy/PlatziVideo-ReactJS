@@ -11,27 +11,20 @@ import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
 
-const App = () => {
-    const [ videos, setVideos ] = useState(
-        {
-            'mylist': [],
-            'trends': [],
-            'originals': []
-        }
-    );
+// Hooks
+import useInitialState from '../hooks/useInitialState';
 
-    useEffect( () => {
-        fetch('http://localhost:3000/initalState')
-            .then(response => response.json())
-            .then(data => setVideos(data))
-    }, []);
+const API = 'http://localhost:3000/initalState';
+
+const App = () => {
+    const InitialState = useInitialState(API);
 
     return(
         <React.Fragment>
             <Header />
             <Search />
             {
-                videos.mylist.length > 0 &&
+                InitialState.mylist.length > 0 &&
                 <Categories title="My list">
                     <Carousel>
                         <CarouselItem />
@@ -42,16 +35,16 @@ const App = () => {
             <Categories title="Trending topic">
                 <Carousel>
                 {
-                    videos.trends.map(item => <CarouselItem key={item.id} {...item} />)
+                    InitialState.trends.map(item => <CarouselItem key={item.id} {...item} />)
                 }
                 </Carousel>
             </Categories>
 
             <Categories title="Platzi Originals">
                 <Carousel>
-                    <CarouselItem />
-                    <CarouselItem />
-                    <CarouselItem />
+                {
+                    InitialState.originals.map( item => <CarouselItem key={item.id} {...item} /> )
+                }
                 </Carousel>
             </Categories>
             <Footer />

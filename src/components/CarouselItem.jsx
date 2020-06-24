@@ -6,6 +6,7 @@ import '../assets/styles/components/CarouselItem.scss';
 // Assets
 import playIcon from '../assets/static/play-icon.png';
 import plusIcon from '../assets/static/plus-icon.png';
+
 const CarouselItem = ( { cover, title, year, contentRating, duration  } ) => {
     return(
         <div className="carousel-item">
