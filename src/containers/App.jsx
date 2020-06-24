@@ -27,7 +27,9 @@ const App = () => {
                 InitialState.mylist.length > 0 &&
                 <Categories title="My list">
                     <Carousel>
-                        <CarouselItem />
+                        {
+                            InitialState.mylist.map(item => <CarouselItem key={item.key} {...item} /> )
+                        }
                     </Carousel>
                 </Categories>
             }
