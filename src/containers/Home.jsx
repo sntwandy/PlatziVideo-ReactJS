@@ -4,7 +4,6 @@ import React, { useState,useEffect } from 'react';
 import '../assets/styles/App.scss';
 
 // Components
-import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
@@ -20,8 +19,7 @@ const Home = () => {
     const InitialState = useInitialState(API);
 
     return(
-        <React.Fragment>
-            <Header />
+        <>
             <Search />
             {
                 InitialState.mylist.length > 0 &&
@@ -49,8 +47,7 @@ const Home = () => {
                 }
                 </Carousel>
             </Categories>
-            <Footer />
-        </React.Fragment>
+        </>
     );
 };
 
