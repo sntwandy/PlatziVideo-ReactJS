@@ -19,6 +19,7 @@ const Player = props => {
     if (!hasPlaying) {
         return <NotFound />
     }
+
     return hasPlaying && (
         <>
             <div className="Player">

@@ -18,7 +18,9 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 60px 68px 40px;
-    width: 300px;
+    width: 30%;
+    min-height: 500px;
+    min-width: 350px;
 }
 
 .login__container--form {
@@ -68,6 +70,7 @@
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
+    margin-left: 5px;
 }
 
 .login__container--register a:hover {

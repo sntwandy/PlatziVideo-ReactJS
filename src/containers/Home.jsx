@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 // Styles
@@ -16,7 +16,7 @@ import CarouselItem from '../components/CarouselItem';
 const Home = ( { myList, trends, originals } ) => {
     return(
         <>
-            <Search />
+            <Search isHome />
             {
                 myList.length > 0 &&
                 <Categories title="My list">
