@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import gravatar from '../utils/gravatar';
 import { logoutRequest } from '../actions';
+import PropTypes from 'prop-types';
 
 // Styles
 import '../assets/styles/components/Header.scss';
@@ -59,6 +60,10 @@ const Header = props => {
         </header>
     );
 };
+
+Header.propType = {
+    user: PropTypes.object,
+}
 
 const mapStateToProps = state => {
     return {
