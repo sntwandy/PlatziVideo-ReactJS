@@ -66,8 +66,4 @@ const mapDispatchToProps = {
     registerUser,
 };
 
-Register.propTypes = {
-    registerUser: propTypes.func,
-}
-
 export default connect(null, mapDispatchToProps)(Register);
