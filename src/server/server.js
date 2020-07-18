@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
 import { StaticRouter } from 'react-router-dom';
 import reducer from '../frontend/reducers';
-import initialState from '../frontend/initialState';
 import getManifest from './getManifest';
 import serverRoutes from '../frontend/routes/serverRoutes';
 import Layout from '../frontend/components/Layout';
@@ -82,13 +81,35 @@ const setResponse = (html, preloadedState, manifest) => {
 }
 
 const renderApp = (req, res) => {
+
+  let initialState;
+  const { email, name, id } = req.cookies;
+
+  if (id) {
+    initialState = {
+      user: {
+        name, email, id
+      },
+      myList: [],
+      trends: [],
+      originals: []
+    }
+  } else {
+    initialState = {
+      user: {},
+      trends: [],
+      originals: []
+    }
+  };
+
   const store = createStore(reducer, initialState);
   const preloadedState = store.getState();
+  const isLogged = (initialState.user.id);
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={{}}>
         <Layout>
-          {renderRoutes(serverRoutes)}
+          {renderRoutes(serverRoutes(isLogged))}
         </Layout>
       </StaticRouter>
     </Provider>
