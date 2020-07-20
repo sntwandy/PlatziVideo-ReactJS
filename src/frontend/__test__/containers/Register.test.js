@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Register from '../../containers/Register';
 import ProviderMock from '../../__mocks__/ProviderMock';
-import { Provider } from 'react-redux';
 
 describe('<Register />', () => {
 
